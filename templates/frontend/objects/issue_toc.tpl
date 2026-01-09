@@ -12,7 +12,7 @@
  * @uses $issueSeries string Vol/No/Year string for the issue
  * @uses $issueGalleys array Galleys for the entire issue
  * @uses $hasAccess bool Can this user access galleys for this context?
- * @uses $publishedSubmissions array Lists of articles published in this issue sorted by section
+ * @uses $publishedSubmissions array Lists of articles published in this issue sorted by section.
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  * @uses $heading string HTML heading element, default: h2
  *}
@@ -28,6 +28,7 @@
 	{assign var="articleHeading" value="h6"}
 {/if}
 <div class="obj_issue_toc">
+
 	{* Indicate if this is only a preview *}
 	{if !$issue->getPublished()}
 		{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
@@ -35,6 +36,7 @@
 
 	{* Issue introduction area above articles *}
 	<div class="heading">
+
 		{* Issue cover image *}
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
@@ -96,10 +98,9 @@
 			</span>
 			<span class="value">
 				{if $issue->getData('conferenceDateBegin') !== $issue->getData('conferenceDateEnd')}
-					{$issue->getData('conferenceDateBegin')|date_format:"%B %e"} -
-					{$issue->getData('conferenceDateEnd')|date_format:"%B %e %Y"}
+					{$issue->getData('conferenceDateBegin')|date_format:"F j"} - {$issue->getData('conferenceDateEnd')|date_format:"F j Y"}
 				{else}
-					{$issue->getData('conferenceDateEnd')|date_format:"%B %e %Y"}
+					{$issue->getData('conferenceDateEnd')|date_format:"F j Y"}
 				{/if}
 			</span>
 		</div>
@@ -158,5 +159,5 @@
 				{/if}
 			</div>
 		{/foreach}
-	</div>
+	</div><!-- .sections -->
 </div>
