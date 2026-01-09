@@ -43,4 +43,3 @@ msgstr "Onlinekonferenz"
 
 msgid "plugins.generic.conference.metadata.conferenceOnline.checkBox"
 msgstr "Das ist eine Online-Konferenz"
-~                                             

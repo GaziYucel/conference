@@ -13,11 +13,11 @@ assignees: 'withanage'
 
 ### Supported
 
-| OJS | Version |
-|-----|------|
-| 3.3 |  :heavy_check_mark:     |
-| 3.4 |      |
-| 3.5 |      |
-| 3.6 |      |
+| OJS | Version            |
+|-----|--------------------|
+| 3.3 | :heavy_check_mark: |
+| 3.4 |                    |
+| 3.5 |                    |
+| 3.6 |                    |
 
 
