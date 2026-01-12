@@ -62,17 +62,20 @@ class IssueHandler
      */
     public function formExecute($hookName, $params): bool
     {
+        if (!isset($params[0]->issue) || $this->plugin->getRequest()->getUserVars() === null) {
+            return false;
+        }
+
         $issue =& $params[0]->issue;
-        if ($issue) {
-            $requestVars = $this->plugin->getRequest()->getUserVars();
-            foreach (PluginSchema::issueFields as $field) {
-                if (array_key_exists($field, $requestVars)) {
-                    $issue->setData($field, $requestVars[$field]);
-                } else {
-                    $issue->setData($field, '');
-                }
+        $requestVars = $this->plugin->getRequest()->getUserVars();
+        foreach (PluginSchema::issueFields as $field) {
+            if (array_key_exists($field, $requestVars)) {
+                $issue->setData($field, $requestVars[$field]);
+            } else {
+                $issue->setData($field, '');
             }
         }
+
         return false;
     }
 }
