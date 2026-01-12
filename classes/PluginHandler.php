@@ -24,7 +24,7 @@ class PluginHandler extends Handler
 {
     public ConferencePlugin $plugin;
 
-    function __construct(ConferencePlugin $plugin)
+    public function __construct(ConferencePlugin $plugin)
     {
         parent::__construct();
         $this->plugin = $plugin;

@@ -22,7 +22,7 @@ class IssueHandler
 {
     public ConferencePlugin $plugin;
 
-    function __construct(ConferencePlugin $plugin)
+    public function __construct(ConferencePlugin $plugin)
     {
         $this->plugin = $plugin;
     }
@@ -30,7 +30,7 @@ class IssueHandler
     /**
      * Handle additional fields.
      */
-    function handleAdditionalFieldNames($hookName, $params): bool
+    public function handleAdditionalFieldNames($hookName, $params): bool
     {
         $fields =& $params[1];
         foreach (PluginSchema::issueFields as $field) {
@@ -42,7 +42,7 @@ class IssueHandler
     /**
      * Insert metadataEditForm.
      */
-    function metadataFieldEdit($hookName, $params): bool
+    public function metadataFieldEdit($hookName, $params): bool
     {
         $smarty =& $params[1];
         $output =& $params[2];
@@ -60,7 +60,7 @@ class IssueHandler
     /**
      * Save fields to the database.
      */
-    function formExecute($hookName, $params): bool
+    public function formExecute($hookName, $params): bool
     {
         $issue =& $params[0]->issue;
         if ($issue) {
